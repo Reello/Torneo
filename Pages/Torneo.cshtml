@@ -1,0 +1,70 @@
+﻿@page
+@model TorneoJudo.Pages.TorneoModel
+
+@{
+    ViewData["Title"] = "Torneo";
+}
+
+<h1 class="backgroundopacity rounded">Torneo</h1>
+
+<div style="overflow-x:auto;">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th style="color:red" class="ombraatleti">1° Atleta </th>
+                <th>Pti</th>
+                <th>Shido</th>
+                <th style="color:white" class="ombraatleti">2° Atleta</th>
+                <th>Pti</th>
+                <th>Shido</th>
+                <th>Durata</th>
+                <th>Vincitore</th>
+                <th>Motivazione</th>
+            </tr>
+
+            @foreach (var item in Model.storicoIncontri)
+            {
+                <tr>
+                    <td>@item.atleta1.nome @item.atleta1.cognome</td>
+                    <td>
+                        @if (item.atleta1 == item.vincitore)
+                        {@Html.DisplayFor(modelItem => item.punteggioVincitore);
+                    }
+                    else
+                    {@Html.DisplayFor(modelItem => item.punteggioSconfitto);
+                }
+                    </td>
+                    <td>@item.shido1</td>
+                    <td>@item.atleta2.nome @item.atleta2.cognome</td>
+                    <td>
+                        @if (item.atleta2 == item.vincitore)
+                        {@Html.DisplayFor(modelItem => item.punteggioVincitore);
+                    }
+                    else
+                    {@Html.DisplayFor(modelItem => item.punteggioSconfitto);
+                }
+                    </td>
+                    <td>@item.shido2</td>
+                    <td>@item.tempo</td>
+                    <td>@item.vincitore.nome @item.vincitore.cognome</td>
+                    <td>
+                        @if (item.shido1 < item.shido2 && item.shido2 == 3)
+                        {<p>Vittoria per squalifa avversario</p>}
+                        else if (item.shido2 < item.shido1 && item.shido1 == 3)
+                        {<p>Vittoria per squalifa avversario</p>}
+                        else if (item.shido1 == item.shido2){<p>Vittoria per punti</p>}
+                        else if (item.shido1 < item.shido2) {<p>Vittoria per punti</p>}
+                        else{<p> Vittoria per punti</p>}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="backgroundopacity rounded manga">
+    <div><label>Il vincitore del torneo e'</label></div>
+    <img src="https://static.thenounproject.com/png/458619-200.png" style="color:gold" width="30" height="30" />
+    <label class="kaori" style="color:red; font-size:20pt">@Model.storicoIncontri[Model.storicoIncontri.Count() - 1].vincitore.nome @Model.storicoIncontri[Model.storicoIncontri.Count() - 1].vincitore.cognome</label>
+    <img src="https://static.thenounproject.com/png/458619-200.png" style="color:gold" width="30" height="30"/>
+</div>

@@ -1,0 +1,118 @@
+﻿@page
+@model TorneoJudo.Pages.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="backgroundopacity rounded">
+    <h1>Cancellazione Iscrizione</h1>
+
+    <h3>Cancellare veramente l'iscrizione di questo atleta?</h3>
+</div>
+<div class="backgroundopacity rounded" style="margin-bottom:12px">
+    <hr />
+    <div class="row" style="margin-left:12pt">
+        <dt class="col-sm-2">Nome</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Atleta.nome)
+        </dd>
+        <dt class="col-sm-2">Cognome</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Atleta.cognome)
+        </dd>
+        <dt class="col-sm-2">Sesso</dt>
+        <dd class="col-sm-10">
+            @if (Model.Atleta.sesso.ToString() == "1")
+            {<p>M</p>}
+            else if (Model.Atleta.sesso.ToString() == "0")
+            {<p>F</p>}
+        </dd>
+        <dt class="col-sm-2">Peso</dt>
+        <dd class="col-sm-10">
+            @if (Model.Atleta.peso == 0)
+            {<p>50 KG</p>}
+            else if (Model.Atleta.peso == 1)
+            {<p>55 KG</p>}
+            else if (Model.Atleta.peso == 2)
+            {<p>60 KG</p>}
+            else if (Model.Atleta.peso == 3)
+            {<p>65 KG</p>}
+            else if (Model.Atleta.peso == 4)
+            {<p>70 KG</p>}
+            else if (Model.Atleta.peso == 5)
+            {<p>75 KG</p>}
+            else if (Model.Atleta.peso == 6)
+            {<p>80 KG</p>}
+            else if (Model.Atleta.peso == 7)
+            {<p>85 KG</p>}
+            else if (Model.Atleta.peso == 8)
+            {<p>90 KG</p>}
+            else if (Model.Atleta.peso == 9)
+            {<p>95 KG</p>}
+            else if (Model.Atleta.peso == 10)
+            {<p>100 KG</p>}
+            else if (Model.Atleta.peso == 11)
+            {<p>105 KG</p>}
+            else if (Model.Atleta.peso == 12)
+            {<p>110 KG</p>}
+        </dd>
+        <dt class="col-sm-2">Cintura</dt>
+        <dd class="col-sm-10">
+            @if (Model.Atleta.cintura == 0)
+            {<p>Bianca</p>}
+            else if (Model.Atleta.cintura == 1)
+            {<p>Bianca-Gialla</p>}
+            else if (Model.Atleta.cintura == 2)
+            {<p>Gialla</p>}
+            else if (Model.Atleta.cintura == 3)
+            {<p>Gialla-Rossa</p>}
+            else if (Model.Atleta.cintura == 4)
+            {<p>Rossa</p>}
+            else if (Model.Atleta.cintura == 5)
+            {<p>Rossa-Verde</p>}
+            else if (Model.Atleta.cintura == 6)
+            {<p>Verde</p>}
+            else if (Model.Atleta.cintura == 7)
+            {<p>Verde-Blu</p>}
+            else if (Model.Atleta.cintura == 8)
+            {<p>Blu</p>}
+            else if (Model.Atleta.cintura == 9)
+            {<p>Blu-Marrone</p>}
+            else if (Model.Atleta.cintura == 10)
+            {<p>Marrone</p>}
+            else if (Model.Atleta.cintura == 11)
+            {<p>Nera</p>}
+            else if (Model.Atleta.cintura == 12)
+            {<p>Nera 2° Dan</p>}
+            else if (Model.Atleta.cintura == 13)
+            {<p>Nera 3° Dan</p>}
+            else if (Model.Atleta.cintura == 14)
+            {<p>Nera 4° Dan</p>}
+            else if (Model.Atleta.cintura == 15)
+            {<p>Nera 5° Dan</p>}
+            else if (Model.Atleta.cintura == 16)
+            {<p>Bianco-Rossa 6° Dan</p>}
+            else if (Model.Atleta.cintura == 17)
+            {<p>Bianco-Rossa 7° Dan</p>}
+            else if (Model.Atleta.cintura == 18)
+            {<p>Bianco-Rossa 8° Dan</p>}
+            else if (Model.Atleta.cintura == 19)
+            {<p>Bianco-Rossa 9° Dan</p>}
+            else if (Model.Atleta.cintura == 20)
+            {<p>Bianco-Rossa 10° Dan</p>}
+        </dd>
+        <dt class="col-sm-2">Vittorie</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Atleta.vittorie)
+        </dd>
+        </dl>
+    </div>
+</div>
+    <div>
+        <form method="post">
+            <input type="hidden" asp-for="Atleta.id" />
+            <input type="submit" value="Cancella iscrizione" class="btn btn-primary1 black" />
+            <a asp-page="./Index" class="btn btn-primary1 black">Torna alla lista dei partecipanti del torneo</a>
+        </form>
+    </div>

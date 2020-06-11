@@ -1,0 +1,128 @@
+﻿@page
+@model TorneoJudo.Pages.CRUDatleti.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1 class="backgroundopacity rounded">Elenco Partecipanti al Torneo:</h1>
+
+<div style="overflow-x:auto;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="font-family:monaco">Nome</th>
+                <th style="font-family:monaco">Cognome</th>
+                <th style="font-family:monaco">Sesso</th>
+                <th style="font-family:monaco">Peso</th>
+                <th style="font-family:monaco">Cintura</th>
+                <th style="font-family:monaco">Vittorie</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Atleta)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cognome)
+                    </td>
+                    <td>
+                        @if (item.sesso.ToString() == "1")
+                        {<h3 style="color:blue">♂</h3>}
+                        else if (item.sesso.ToString() == "0")
+                        { <h3 style="color:fuchsia">♀</h3>}
+                    </td>
+                    <td>
+                        @if (item.peso == 0)
+                        {<p>50 KG</p>}
+                        else if (item.peso == 1)
+                        {<p>55 KG</p>}
+                        else if (item.peso == 2)
+                        {<p>60 KG</p>}
+                        else if (item.peso == 3)
+                        {<p>65 KG</p>}
+                        else if (item.peso == 4)
+                        {<p>70 KG</p>}
+                        else if (item.peso == 5)
+                        {<p>75 KG</p>}
+                        else if (item.peso == 6)
+                        {<p>80 KG</p>}
+                        else if (item.peso == 7)
+                        {<p>85 KG</p>}
+                        else if (item.peso == 8)
+                        {<p>90 KG</p>}
+                        else if (item.peso == 9)
+                        {<p>95 KG</p>}
+                        else if (item.peso == 10)
+                        {<p>100 KG</p>}
+                        else if (item.peso == 11)
+                        {<p>105 KG</p>}
+                        else if (item.peso == 12)
+                        {<p>110 KG</p>}
+                    </td>
+                    <td>
+                        @if (item.cintura == 0)
+                        {<p>Bianca</p>}
+                        else if (item.cintura == 1)
+                        {<p>Bianca-Gialla</p>}
+                        else if (item.cintura == 2)
+                        {<p>Gialla</p>}
+                        else if (item.cintura == 3)
+                        {<p>Gialla-Rossa</p>}
+                        else if (item.cintura == 4)
+                        {<p>Rossa</p>}
+                        else if (item.cintura == 5)
+                        {<p>Rossa-Verde</p>}
+                        else if (item.cintura == 6)
+                        {<p>Verde</p>}
+                        else if (item.cintura == 7)
+                        {<p>Verde-Blu</p>}
+                        else if (item.cintura == 8)
+                        {<p>Blu</p>}
+                        else if (item.cintura == 9)
+                        {<p>Blu-Marrone</p>}
+                        else if (item.cintura == 10)
+                        {<p>Marrone</p>}
+                        else if (item.cintura == 11)
+                        {<p>Nera</p>}
+                        else if (item.cintura == 12)
+                        {<p>Nera 2° Dan</p>}
+                        else if (item.cintura == 13)
+                        {<p>Nera 3° Dan</p>}
+                        else if (item.cintura == 14)
+                        {<p>Nera 4° Dan</p>}
+                        else if (item.cintura == 15)
+                        {<p>Nera 5° Dan</p>}
+                        else if (item.cintura == 16)
+                        {<p>Bianco-Rossa 6° Dan</p>}
+                        else if (item.cintura == 17)
+                        {<p>Bianco-Rossa 7° Dan</p>}
+                        else if (item.cintura == 18)
+                        {<p>Bianco-Rossa 8° Dan</p>}
+                        else if (item.cintura == 19)
+                        {<p>Bianco-Rossa 9° Dan</p>}
+                        else if (item.cintura == 20)
+                        {<p>Bianco-Rossa 10° Dan</p>}
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vittorie)
+                    </td>
+                    <td>
+                        @if (item.foreignKeySquadra == Model.userid || Model.userid == "admin")
+                        {<a class="btn btn-primary1 kaori" asp-page="./Edit" asp-route-id="@item.id">Modifica</a>}
+                        <a class="btn btn-primary1 kaori" asp-page="./Details" asp-route-id="@item.id">Dettagli</a>
+                        @if (item.foreignKeySquadra == Model.userid || Model.userid == "admin")
+                        {<a class="btn btn-primary1 kaori" asp-page="./Delete" asp-route-id="@item.id">Cancella</a>}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@if (Model.IsPowerOfTwo((ulong)Model.Atleta.Count()) == false && Model.userid == "admin") { <h1 style="color:darkred" class="backgroundopacity error">Non avviare il torneo perche' il numero di partecipanti non e' una potenza di 2</h1> }
+@if (User.Identity.IsAuthenticated)
+{<a class="btn btn-primary1 black" asp-page="./Create">Effettua iscrizione</a>}

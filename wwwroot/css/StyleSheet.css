@@ -1,0 +1,103 @@
+﻿@font-face {
+    font-family: 'manga';
+    src: url('/fonts/mangat.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'kaoriBold';
+    src: url('/fonts/KaoriGelBold.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'black';
+    src:url('/fonts/black.otf') format('opentype');
+}
+
+@font-face{
+    font-family: 'error';
+    src:url('/fonts/error.ttf') format('truetype');
+}
+
+.manga {
+    font-family: "manga";
+}
+
+.kaori {
+    font-family:"kaoriBold";
+}
+
+.bamboo {
+    background-image: url("/images/bamboo.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.error{
+    font-family:"error";
+}
+
+.black {
+    font-family:"black";
+}
+
+h1{
+    font-family: "manga";
+}
+
+.backgroundopacity {
+    text-align:center;
+    background-color:antiquewhite;
+    opacity:0.88;
+}
+
+.rounded {
+    border-radius: 15px 15px;
+}
+
+.btn-primary1 {
+    background-color:antiquewhite;
+    border-color:navajowhite;
+    color:dimgray;
+}
+
+.btn-primary1:hover {
+    background-color: burlywood;
+    border-color: navajowhite;
+}
+
+.btn-primary1:not(:disabled):not(.disabled):active {
+    background-color: sandybrown;
+    border-color: sandybrown;
+}
+
+.btn-primary1:focus {
+    background-color: burlywood;
+    border-color: navajowhite;
+    outline-color: sandybrown;
+    box-shadow: 0 0 0 0.2rem rgba(244, 164, 96, 0.5);
+}
+
+.ombraatleti {
+    text-shadow: 2px 2px 4px #000000;
+}
+
+th, label {
+    text-align: center;
+    font-size: 20pt;
+    text-shadow: 2px 2px 4px #ffffff;
+}
+
+td, p, dd {
+    font-family: "kaoriBold";
+}
+
+tr {
+    background-image: url("/images/wood.png");
+    background-size:cover;
+}
+
+td{
+    text-align:center;
+    background-color:beige;
+}

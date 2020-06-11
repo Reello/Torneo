@@ -1,0 +1,91 @@
+﻿@page
+@model TorneoJudo.Pages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="backgroundopacity rounded">Iscrivi l'atleta</h1>
+<form method="post">
+    <div class="backgroundopacity rounded" style="margin-bottom:12pt">
+        <div class="row"  style="margin-left:12pt">
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    Nome
+                    <input asp-for="Atleta.nome" class="form-control" />
+                    <span asp-validation-for="Atleta.nome" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    Cognome
+                    <input asp-for="Atleta.cognome" class="form-control" />
+                    <span asp-validation-for="Atleta.cognome" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    Sesso
+                    <select asp-for="Atleta.sesso" class="form-control">
+                        <option value="1">M</option>
+                        <option value="0">F</option>
+                        <span asp-validation-for="Atleta.sesso" class="text-danger"></span>
+                    </select>
+                </div>
+                <div class="form-group">
+                    Peso (KG)
+                    <select asp-for="Atleta.peso" class="form-control">
+                        <option value="0">50</option>
+                        <option value="1">55</option>
+                        <option value="2">60</option>
+                        <option value="3">65</option>
+                        <option value="4">70</option>
+                        <option value="5">75</option>
+                        <option value="6">80</option>
+                        <option value="7">85</option>
+                        <option value="8">90</option>
+                        <option value="9">95</option>
+                        <option value="10">100</option>
+                        <option value="11">105</option>
+                        <option value="12">110</option>
+                        <span asp-validation-for="Atleta.peso" class="text-danger"></span>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    Cintura colorata
+                    <select asp-for="Atleta.cintura" class="form-control">
+                        <option value="0">Bianca</option>
+                        <option value="1">Bianca-Gialla</option>
+                        <option value="2">Gialla</option>
+                        <option value="3">Gialla-Rossa</option>
+                        <option value="4">Rossa</option>
+                        <option value="5">Rossa-Verde</option>
+                        <option value="6">Verde</option>
+                        <option value="7">Verde-Blu</option>
+                        <option value="8">Blu</option>
+                        <option value="9">Blu-Marrone</option>
+                        <option value="10">Marrone</option>
+                        <option value="11">Nera</option>
+                        <option value="12">Nera 2° Dan</option>
+                        <option value="13">Nera 3° Dan</option>
+                        <option value="14">Nera 4° Dan</option>
+                        <option value="15">Nera 5° Dan</option>
+                        <option value="16">Bianco-Rossa 6° Dan</option>
+                        <option value="17">Bianco-Rossa 7° Dan</option>
+                        <option value="18">Bianco-Rossa 8° Dan</option>
+                        <option value="19">Bianco-Rossa 9° Dan</option>
+                        <option value="20">Bianco-Rossa 10° Dan</option>
+                        <span asp-validation-for="Atleta.cintura" class="text-danger"></span>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Iscrivi atleta" class="btn btn-primary1 black" />
+        <a asp-page="./Index" class="btn btn-primary1 black">Torna alla lista dei partecipanti del torneo</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
